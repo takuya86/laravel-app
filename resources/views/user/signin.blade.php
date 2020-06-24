@@ -17,10 +17,10 @@
          </div>
          @endif
          <form action="{{route('user.login')}}" method="POST">
-           @csrf
+           @csrf <!-- 不正アクセス対策 POSTする際は必須 -->
            <div class="form-group">
              <label for="email">E-Mail</label>
-             <input type="text" id="email" name="email" value="{{old('email')}}" class="form-control">
+             <input type="text" id="email" name="email" value="{{old('email')}}" class="form-control"> <!-- oldはバリデーションエラーがあっても入力値を保持する -->
            </div>
            <div class="form-group">
              <label for="password">Password</label>
