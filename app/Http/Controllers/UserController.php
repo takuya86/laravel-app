@@ -9,7 +9,8 @@ class UserController extends Controller
     /**
      * ログインフォーム表示アクション
      * */
-    public function signin() {
-        return view('user.signin');
+    public function signin()
+    {
+      return view('user.signin');
     }
 }
