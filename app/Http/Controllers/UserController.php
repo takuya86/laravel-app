@@ -57,7 +57,7 @@ class UserController extends Controller
     /**
      * ユーザ登録処理アクション
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
       $user     = new User;
       $name     = $request -> input('name');
@@ -68,12 +68,13 @@ class UserController extends Controller
         'email'    => $email,
         'password' => Hash::make($password),
       ];
-      if (!$user -> fill($params) -> save()) {
-        return redirect() -> route('user.create') -> with('error_message', 'User registration failed');
+      if (!$user->userSave($params)) {
+        return redirect()->route('user.create')->with('error_message', 'User registration failed');
       }
       if (!Auth::attempt(['email' => $email, 'password' => $password])) {
         return redirect() -> route('user.signin') -> with('error_message', 'I failed to login');
       }
       return redirect() -> route('micropost.index');
     }
+
 }
