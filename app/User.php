@@ -10,6 +10,16 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected static function boot()
+    {
+        params::boot();
+        static::deleting(function($model) {
+            foreach ($model -> microposts() -> get() as $child) {
+                $child -> delete();
+            }
+        });
+    }
+
     /**
      * ユーザの投稿データを取得
      */
