@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Micropost;
+
 class MicropostsTableSeeder extends Seeder
 {
     /**
@@ -11,6 +13,23 @@ class MicropostsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $microposts = [
+            [
+                'user_id'  => 1,
+                'content'  => 'これはテスト投稿1'
+            ],
+            [
+                'user_id'  => 1,
+                'content'  => 'これはテスト投稿2'
+            ],
+            [
+                'user_id'  => 1,
+                'content'  => 'これはテスト投稿3'
+            ],
+        ];
+
+        foreach ($microposts as $micropost) {
+            Micropost::create($micropost);
+        }
     }
 }

@@ -12,7 +12,7 @@ class User extends Authenticatable
 
     protected static function boot()
     {
-        params::boot();
+        parent::boot();
         static::deleting(function($model) {
             foreach ($model -> microposts() -> get() as $child) {
                 $child -> delete();
