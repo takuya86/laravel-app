@@ -2,6 +2,20 @@
   color: red;
 }
 
+.home-mein {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.card-img-top{
+  position: absolute;
+}
+
 .prefs-choice {
-  font-size: 100px;
+  position: relative;
+  text-align: center;
+  padding-top: 20%;
+}
+
+.home-title {
+  color: #f7593e;
 }
