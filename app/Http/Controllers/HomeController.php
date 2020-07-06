@@ -16,9 +16,4 @@ class HomeController extends Controller
         return view('home.index');
     }
 
-    public function prefecture()
-    {
-        $prefs = config('pref');
-        return view('prefecture') -> with(['prefs' => $prefs]);
-    }
 }
